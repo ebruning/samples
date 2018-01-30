@@ -43,7 +43,12 @@
 </head>
 
 <body>
-  <script>
+  <div id="container">
+
+    <video id="video" autoplay></video>
+    <canvas height="480px" width="640px" id="snap"></canvas>
+
+      <script>
     var x = document.getElementById("snap");
     if (x.style.display === "none") {
         x.style.display = "block";
@@ -51,10 +56,6 @@
         x.style.display = "none";
     }
   </script>
-  <div id="container">
-
-    <video id="video" autoplay></video>
-    <canvas height="480px" width="640px" id="snap"></canvas>
     <input type="button" id="takesnap" value="Take Snap"/>
 
     <div class="select">
