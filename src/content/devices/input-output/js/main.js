@@ -15,15 +15,15 @@ var selectors = [videoSelect];
 
 // audioOutputSelect.disabled = !('sinkId' in HTMLMediaElement.prototype);
 
-function onload() {
-  // canvas.display === "none";
-    var x = document.getElementById("snap");
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-    }
-}
+// function onload() {
+//   // canvas.display === "none";
+//     var x = document.getElementById("snap");
+//     if (x.style.display === "none") {
+//         x.style.display = "block";
+//     } else {
+//         x.style.display = "none";
+//     }
+// }
 function getUserMedia(){
     if(navigator.getUserMedia){
         navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia
@@ -47,7 +47,8 @@ videoElement.addEventListener("click", function(){
             console.log(error);
         });
     }
-    videoElement.display === "none"
+    document.getElementById("video").style.display === "none";
+    document.getElementById("snap").style.display === "block";
 });
 captureSnap.addEventListener("click", function(){
 
