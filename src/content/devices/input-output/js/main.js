@@ -16,7 +16,13 @@ var selectors = [videoSelect];
 // audioOutputSelect.disabled = !('sinkId' in HTMLMediaElement.prototype);
 
 function onload() {
-  canvas.display === "none";
+  // canvas.display === "none";
+    var x = document.getElementById("snap");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
 }
 function getUserMedia(){
     if(navigator.getUserMedia){
