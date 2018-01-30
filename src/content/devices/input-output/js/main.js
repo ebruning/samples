@@ -10,9 +10,6 @@
 var captureSnap = document.getElementById("takesnap");
 var canvas = document.getElementById("snap");
 var videoElement = document.querySelector('video');
-// var captureWebcam = document.getElementById("capturewebcam");
-//var audioInputSelect = document.querySelector('select#audioSource');
-// var audioOutputSelect = document.querySelector('select#audioOutput');
 var videoSelect = document.querySelector('select#videoSource');
 var selectors = [videoSelect];
 
@@ -62,15 +59,7 @@ function gotDevices(deviceInfos) {
     var deviceInfo = deviceInfos[i];
     var option = document.createElement('option');
     option.value = deviceInfo.deviceId;
-    // if (deviceInfo.kind === 'audioinput') {
-    //   option.text = deviceInfo.label ||
-    //       'microphone ' + (audioInputSelect.length + 1);
-    //   audioInputSelect.appendChild(option);
-    // } else if (deviceInfo.kind === 'audiooutput') {
-    //   option.text = deviceInfo.label || 'speaker ' +
-    //       (audioOutputSelect.length + 1);
-    //   audioOutputSelect.appendChild(option);
-    // } else
+
     if (deviceInfo.kind === 'videoinput') {
       option.text = deviceInfo.label || 'camera ' + (videoSelect.length + 1);
       videoSelect.appendChild(option);
@@ -112,7 +101,6 @@ function attachSinkId(element, sinkId) {
 }
 
 function changeAudioDestination() {
-  // var audioDestination = audioOutputSelect.value;
   attachSinkId(videoElement, audioDestination);
 }
 
@@ -139,8 +127,6 @@ function start() {
       then(gotStream).then(gotDevices).catch(handleError);
 }
 
-// audioInputSelect.onchange = start;
-// audioOutputSelect.onchange = changeAudioDestination;
 videoSelect.onchange = start;
 
 start();
