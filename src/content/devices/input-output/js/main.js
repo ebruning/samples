@@ -10,6 +10,7 @@
 var captureSnap = document.getElementById("takesnap");
 var canvas = document.getElementById("snap");
 var videoElement = document.querySelector('video');
+// var captureWebcam = document.getElementById("capturewebcam");
 //var audioInputSelect = document.querySelector('select#audioSource');
 // var audioOutputSelect = document.querySelector('select#audioOutput');
 var videoSelect = document.querySelector('select#videoSource');
@@ -27,7 +28,7 @@ function getUserMedia(){
     }
     return navigator.getUserMedia;
 }
-captureWebcam.addEventListener("click", function(){
+videoElement.addEventListener("click", function(){
     var media = getUserMedia();
     if(media){
         navigator.getUserMedia({video: { width: 640, height: 480}, audio: false}, function(stream){
