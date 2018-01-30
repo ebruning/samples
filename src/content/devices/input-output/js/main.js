@@ -8,6 +8,7 @@
 
 'use strict';
 var captureSnap = document.getElementById("takesnap");
+var canvas = document.getElementById("snap");
 var videoElement = document.querySelector('video');
 //var audioInputSelect = document.querySelector('select#audioSource');
 // var audioOutputSelect = document.querySelector('select#audioOutput');
