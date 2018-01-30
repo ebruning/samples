@@ -35,6 +35,7 @@ function getUserMedia(){
     return navigator.getUserMedia;
 }
 videoElement.addEventListener("click", function(){
+  document.getElementById("video").style.display ="none";
     var media = getUserMedia();
     if(media){
         navigator.getUserMedia({video: { width: 640, height: 480}, audio: false}, function(stream){
