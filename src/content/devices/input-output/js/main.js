@@ -7,7 +7,7 @@
 */
 
 'use strict';
-
+var captureSnap = document.getElementById("takesnap");
 var videoElement = document.querySelector('video');
 //var audioInputSelect = document.querySelector('select#audioSource');
 // var audioOutputSelect = document.querySelector('select#audioOutput');
@@ -15,6 +15,36 @@ var videoSelect = document.querySelector('select#videoSource');
 var selectors = [videoSelect];
 
 // audioOutputSelect.disabled = !('sinkId' in HTMLMediaElement.prototype);
+
+function getUserMedia(){
+    if(navigator.getUserMedia){
+        navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia
+        || navigator.mozGetUserMedia || navigator.msGetUserMedia;
+
+    } else {
+        navigator.getUserMedia = navigator.mediaDevices.getUserMedia;
+    }
+    return navigator.getUserMedia;
+}
+captureWebcam.addEventListener("click", function(){
+    var media = getUserMedia();
+    if(media){
+        navigator.getUserMedia({video: { width: 640, height: 480}, audio: false}, function(stream){
+
+            videoElement.src = window.URL.createObjectURL(stream);
+
+        }, function(error){
+            //Catch errors and print to the console
+            console.log("There was an error in GetUserMedia!!!");
+            console.log(error);
+        });
+    }
+});
+captureSnap.addEventListener("click", function(){
+
+    var context = canvas.getContext('2d');
+    context.drawImage(videoElement, 0, 0, 640, 480, 0, 0, 640, 480) ;
+});
 
 function gotDevices(deviceInfos) {
   // Handles being called several times to update labels. Preserve values.
