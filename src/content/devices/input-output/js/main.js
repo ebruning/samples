@@ -15,6 +15,9 @@ var selectors = [videoSelect];
 
 // audioOutputSelect.disabled = !('sinkId' in HTMLMediaElement.prototype);
 
+function onload() {
+  canvas.display === "none";
+}
 function getUserMedia(){
     if(navigator.getUserMedia){
         navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia
@@ -38,6 +41,7 @@ videoElement.addEventListener("click", function(){
             console.log(error);
         });
     }
+    videoElement.display === "none"
 });
 captureSnap.addEventListener("click", function(){
 
@@ -120,7 +124,6 @@ function start() {
   // var audioSource = audioInputSelect.value;
   var videoSource = videoSelect.value;
   var constraints = {
-    // audio: {deviceId: audioSource ? {exact: audioSource} : undefined},
     video: {deviceId: videoSource ? {exact: videoSource} : undefined}
   };
   navigator.mediaDevices.getUserMedia(constraints).
