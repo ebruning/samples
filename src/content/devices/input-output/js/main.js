@@ -35,7 +35,6 @@ function getUserMedia(){
     return navigator.getUserMedia;
 }
 videoElement.addEventListener("click", function(){
-    document.getElementById("video").style.display === "none";
     var media = getUserMedia();
     if(media){
         navigator.getUserMedia({video: { width: 640, height: 480}, audio: false}, function(stream){
@@ -52,8 +51,8 @@ videoElement.addEventListener("click", function(){
 captureSnap.addEventListener("click", function(){
 
     var context = canvas.getContext('2d');
-    //     document.getElementById("video").style.display === "none";
-    // document.getElementById("snap").style.display === "block";
+    document.getElementById("video").style.display ="none";
+    document.getElementById("snap").style.display = "block";
     context.drawImage(videoElement, 0, 0, 640, 480, 0, 0, 640, 480) ;
 });
 

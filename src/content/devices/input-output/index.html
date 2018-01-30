@@ -48,14 +48,14 @@
     <video id="video" autoplay></video>
     <canvas height="480px" width="640px" id="snap"></canvas>
 
-      <script>
-    var x = document.getElementById("snap");
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-    }
-  </script>
+    <script>
+      var canvas = document.getElementById("snap");
+      if (canvas.style.display === "none") {
+          canvas.style.display = "block";
+      } else {
+          canvas.style.display = "none";
+      }
+    </script>
     <input type="button" id="takesnap" value="Take Snap"/>
 
     <div class="select">
